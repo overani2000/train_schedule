@@ -13,9 +13,9 @@ pipeline {
             }
         }
         stage('Build Docker Image') {
-            when {
-                branch 'master'
-            }
+            // when {
+            //   branch 'master'
+            // }
             steps {
                 script {
                     app = docker.build(DOCKER_IMAGE_NAME)
@@ -39,9 +39,9 @@ pipeline {
             }
         }
         stage('CanaryDeploy') {
-            when {
-                branch 'master'
-            }
+            // when {
+            //    branch 'master'
+            // }
             environment { 
                 CANARY_REPLICAS = 1
             }
@@ -54,9 +54,9 @@ pipeline {
             }
         }
         stage('DeployToProduction') {
-            when {
-                branch 'master'
-            }
+            // when {
+            //    branch 'master'
+            //}
             environment { 
                 CANARY_REPLICAS = 0
             }
